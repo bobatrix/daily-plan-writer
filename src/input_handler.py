@@ -1,20 +1,20 @@
 from models import Mode
 
-def create_mode():
+def create_mode() -> Mode:
     mode_name = input("Enter Mode name: ")
     mode = Mode(mode_name)
     return mode
-def remove_mode(mode_list):
+def remove_mode(mode_list) -> None:
     for i in range(len(mode_list)):
         print(f"{i}. {mode_list[i].mode_name}")
     mode_choice = input("remove mode: ")
     mode_list.remove(mode_list[int(mode_choice)])
 
-def create_task():
+def create_task() -> str:
     task = input("enter the task: ")
     return task
 
-def choose_mode(mode_list):
+def choose_mode(mode_list) -> Mode:
     while True:
         for i, mode in enumerate(mode_list):
             print(f"{i}. {mode.mode_name}")
