@@ -1,9 +1,7 @@
 from models import *
-from src.models import Subject
 
 
 def mode_to_text(mode: Mode) -> str:
-
     output = ""
     output += "## " + mode.mode_name
     output += "\n"
@@ -18,7 +16,6 @@ def mode_to_text(mode: Mode) -> str:
     else:
         raise "No subject list"
     return output
-
 
 # # Test program IGNORE
 # test_task_list = ["create test_task_list", "add test_task_list to subject", "add subject to mode"]
