@@ -11,11 +11,10 @@ def init_file(day_number: int) -> MdUtils:
     mdFile.new_line("---\n\n")
     return mdFile
 
+
 def file_writer(mdFile: MdUtils, content: str) -> MdUtils:
     mdFile.write(content)
     return mdFile
-
-
 
 # file = init_file(3)
 # file.write("> ### Python\n>\n> * [ ] Continue with something")

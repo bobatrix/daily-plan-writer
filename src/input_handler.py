@@ -8,15 +8,10 @@ def create_mode() -> Mode:
 
 
 def remove_mode(mode_list: list[Mode]) -> None:
-    for i , mode in enumerate(mode_list):
+    for i, mode in enumerate(mode_list):
         print(f"{i}. {mode.mode_name}")
     mode_choice = int(input("remove mode: "))
     mode_list.remove(mode_list[mode_choice])
-
-
-def create_task(task_list: list[str]) -> list[str]:
-    task_list.append(input("enter the task: "))
-    return task_list
 
 
 def create_subject() -> Subject:
@@ -24,11 +19,17 @@ def create_subject() -> Subject:
     subject = Subject(subject_name)
     return subject
 
+
 def remove_subject(subject_list: list[Subject]) -> None:
     for i, subject in enumerate(subject_list):
         print(f"{i}. {subject.subject_name}")
     subject_choice = int(input("choose subject: "))
     subject_list.remove(subject_list[subject_choice])
+
+
+def create_task(task_list: list[str]) -> list[str]:
+    task_list.append(input("enter the task: "))
+    return task_list
 
 
 def remove_task(task_list: list[str]) -> None:
@@ -76,9 +77,6 @@ def choose_subject(subject_list: list[Subject]) -> Subject:
 
         else:
             print("invalid choice")
-
-
-
 
 # Testing Program
 # Computer_Mode = Mode("Computer Mode")

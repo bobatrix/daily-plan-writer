@@ -3,11 +3,10 @@
 A command-line Python program that generates daily study plans in Markdown.
 
 ## Table of Contents
+
 - [Features](#features)
 - [Goals](#goals)
 - [Future Ideas](#future-ideas)
-
-
 
 ## Features
 
