@@ -26,3 +26,4 @@ A command-line Python program that generates daily study plans in Markdown.
 - GUI
 - Calendar support
 - Task Rollover
+
