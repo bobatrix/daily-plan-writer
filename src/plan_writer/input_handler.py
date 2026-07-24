@@ -44,7 +44,9 @@ def choose_mode(mode_list: list[Mode]) -> Mode:
         for i, mode in enumerate(mode_list):
             print(f"{i}. {mode.mode_name}")
 
-        print(f"{len(mode_list)}. Create Mode \n{len(mode_list) + 1}. Delete Mode")
+        print(f"{len(mode_list)}. Create Mode")
+        if mode_list:
+            print(f"{len(mode_list) + 1}. Delete Mode")
 
         mode_choice = int(input("choose mode: "))
 
@@ -52,9 +54,12 @@ def choose_mode(mode_list: list[Mode]) -> Mode:
             mode_list.append(create_mode())
 
         elif mode_choice == len(mode_list) + 1:
-            remove_mode(mode_list)
-
+            if mode_list:
+                remove_mode(mode_list)
+            else:
+                print("invalid choice")
         elif 0 <= mode_choice < len(mode_list):
+            print(f"You have chosen {mode_list[mode_choice].mode_name}")
             return mode_list[mode_choice]
         else:
             print("invalid choice")
@@ -65,16 +70,42 @@ def choose_subject(subject_list: list[Subject]) -> Subject:
         for i, subject in enumerate(subject_list):
             print(f"{i}. {subject.subject_name}")
 
-        print(f"{len(subject_list)}. Create Subject\n{len(subject_list) + 1}. Delete Subject")
+        print(f"{len(subject_list)}. Create Subject")
+        if subject_list:
+            print(f"{len(subject_list) + 1}. Delete Subject")
         subject_choice = int(input("choose subject: "))
         if subject_choice == len(subject_list):
             subject_list.append(create_subject())
         elif subject_choice == len(subject_list) + 1:
-            remove_subject(subject_list)
-
+            if subject_list:
+                remove_subject(subject_list)
+            else:
+                print("invalid choice")
         elif 0 <= subject_choice < len(subject_list):
+            print(f"You have chosen {subject_list[subject_choice].subject_name}")
             return subject_list[subject_choice]
 
+        else:
+            print("invalid choice")
+
+
+def show_tasks(task_list: list[str]) -> None:
+    while True:
+        print(f"{len(task_list)} Tasks:")
+        for i, task in enumerate(task_list):
+            print(f"{i}. {task}")
+
+        add_task = input("add task(Y/n): ")
+        if add_task == "Y" or add_task == "y":
+            task_list = create_task(task_list)
+        elif add_task == "N" or add_task == "n":
+            rmv_task = input("remove task(Y/n): ")
+            if rmv_task == "Y" or rmv_task == "y":
+                remove_task(task_list)
+            elif rmv_task == "N" or rmv_task == "n":
+                break
+            else:
+                print("invalid choice")
         else:
             print("invalid choice")
 
